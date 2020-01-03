@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Food from "./Food";
-
+import Meal from "./Meal";
 import "./App.css";
 
 class App extends Component {
@@ -11,12 +11,10 @@ class App extends Component {
         <Route
           exact
           path="/food/:name"
-          // render={routeProps => <Food name="egg" stuff={routeProps} />}
           // render={routeProps => <Food name={routeProps.match.params.name} />} // ONE WAY
           render={routeProps => <Food {...routeProps} />} // OPTION 2: Bring in 3 seperate props ...routeProps
         />
-        {/* OR use component and skip the extra work but it won't work if you need another prop such as 'authenicated' */}
-        {/* <Route exact path="/food/:name" component={Food} /> */}
+        <Route exact path="/food/:foodName/drink/:drinkName" component={Meal} />
       </div>
     );
   }
@@ -39,4 +37,13 @@ render={routeProps => <Food name="egg" stuff={routeProps} />}
   stuff returns match, location, and history
   routeProps.match.params.name will return the name in the url
 
-*/
+
+
+Working with one parameter in the url
+<Route exactpath="/food/:name"
+  // render={routeProps => <Food name="egg" stuff={routeProps} />}
+  // render={routeProps => <Food name={routeProps.match.params.name} />} // ONE WAY
+  render={routeProps => <Food {...routeProps} />} // OPTION 2: Bring in 3 seperate props ...routeProps
+/>
+/* OR use component and skip the extra work but it won't work if you need another prop such as 'authenicated' */
+/* <Route exact path="/food/:name" component={Food} /> */
