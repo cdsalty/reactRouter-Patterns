@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Food from "./Food";
 import Meal from "./Meal";
+import FoodSearch from "./FoodSearch";
 import "./App.css";
 
 class App extends Component {
@@ -22,7 +23,8 @@ class App extends Component {
             path="/food/:foodName/drink/:drinkName"
             component={Meal}
           />
-          <Route exact path="/" render={() => <h1>HomePage</h1>} />
+          {/* <Route exact path="/" render={() => <h1>HomePage</h1>} /> */}
+          <Route exact path="/" render={() => <FoodSearch />} />
           <Route render={() => <h2>404 Error: Site requested not found</h2>} />
         </Switch>
       </div>
